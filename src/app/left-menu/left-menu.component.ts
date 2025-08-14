@@ -12,9 +12,9 @@ export class LeftMenuComponent {
   ngOnInit() {
     this.items = [
       {
-        label: 'Home',
-        icon: 'pi pi-home',
-        routerLink: ''
+        label: 'Task List',
+        icon: 'pi pi-list-check',
+        routerLink: '/taskList'
       }
     ];
   }

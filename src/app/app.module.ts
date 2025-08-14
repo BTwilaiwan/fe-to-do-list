@@ -10,12 +10,15 @@ import { AvatarModule } from 'primeng/avatar';
 import { LeftMenuComponent } from './left-menu/left-menu.component';
 import { AppComponent } from './app.component';
 import { MenuBarComponent } from './menu-bar/menu-bar.component';
+import { TaskListComponent } from './task-list/task-list.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
     AppComponent,
     LeftMenuComponent,
-    MenuBarComponent
+    MenuBarComponent,
+    TaskListComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,9 @@ import { MenuBarComponent } from './menu-bar/menu-bar.component';
     AvatarModule,
     MenubarModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
