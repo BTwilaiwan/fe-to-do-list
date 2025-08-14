@@ -1,0 +1,38 @@
+.p-datepicker-inline {
+  display: inline-block;
+  position: static;
+  overflow-x: auto;
+}
+
+.p-datepicker {
+  width: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.75rem;
+  background: #ffffff;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+}
+
+.p-datepicker .p-datepicker-header {
+  padding: 0 0 0.5rem 0;
+  color: #334155;
+  background: #ffffff;
+  font-weight: 500;
+  margin: 0 0 0 0;
+  border-bottom: 1px solid #e2e8f0;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+}
+
+.p-datepicker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.p-calendar .p-datepicker {
+  min-width: 100%;
+}

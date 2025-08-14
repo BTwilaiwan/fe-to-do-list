@@ -9,6 +9,8 @@ import { TaskService } from '../shared/service/task.service';
 export class TaskListComponent {
 
   public dataTable: any[] = [];
+  public isShowDialog: boolean = false;
+  public defaultData: any = {};
 
   constructor(
     private alertService: AlertService,
@@ -23,7 +25,6 @@ export class TaskListComponent {
     try {
       this.taskService.getTaskList().subscribe({
         next: (response: any) => {
-          console.log(response)
           const temp = response;
           temp.forEach((element: any) => {
             element.color = 'text-success';
@@ -31,7 +32,7 @@ export class TaskListComponent {
             if(element.priority === 'Medium') element.color = 'text-warning';
           });
           this.dataTable = temp;
-          console.log(this.dataTable)
+          this.dataTable = this.dataTable.sort((a: any, b: any) => a.priorityId - b.priorityId)
         }, error: (err) => {
            return this.alertService.alert('error', '', err.error.message)
         }
@@ -43,8 +44,10 @@ export class TaskListComponent {
   }
 
   onOpenDialog() {
-    this.alertService.alert('error', '', 'error')
+    this.isShowDialog = true;
   }
 
   onEdit(event: any) {}
+
+  onComplete(event: any) {}
 }
