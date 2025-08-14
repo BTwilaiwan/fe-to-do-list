@@ -1,12 +1,25 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MenuModule } from 'primeng/menu';
 
+import { LeftMenuComponent } from './left-menu/left-menu.component';
+import { AppComponent } from './app.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    AppComponent,
+    LeftMenuComponent
+  ],
   imports: [
-    CommonModule
-  ]
+    BrowserModule,
+    MenuModule,
+    AppRoutingModule,
+    BrowserAnimationsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

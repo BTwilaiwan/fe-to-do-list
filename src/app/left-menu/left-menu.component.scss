@@ -1,0 +1,39 @@
+::ng-deep .left-menu {
+  p-menu > div.p-menu.p-component {
+    height: 100vh;
+    background:  #FFFFFF;
+    color: #00adef;
+    padding: 40px 0;
+    width: 150px;
+    border-radius: 0 20px 20px 0;
+    box-shadow: inset -1px 0 0 #ccc;
+  }
+
+  p-menu > div.p-menu.p-component > .p-menu-start {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+  }
+
+  p-menu > div.p-menu.p-component ul {
+    padding-left: 0;
+  }
+
+  p-menu .p-menuitem a {
+    text-decoration: none !important;
+  }
+  .p-menu .p-menuitem:not(.p-highlight):not(.p-disabled).p-focus > .p-menuitem-content,
+  .p-menu .p-menuitem-link:hover {
+    background: #E6F7FD;
+    color: #00adef;
+    border-radius: 10px;
+  }
+  .p-menuitem-icon, .p-menuitem-text {
+    color: #00adef;
+  }
+
+  p-menu li {
+    padding: 10px;
+  }
+}
+
