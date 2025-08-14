@@ -8,6 +8,7 @@ import { MenubarModule } from 'primeng/menubar';
 import { AvatarModule } from 'primeng/avatar';
 import { ButtonModule } from 'primeng/button';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { TableModule } from 'primeng/table';
 
 import { LeftMenuComponent } from './left-menu/left-menu.component';
 import { AppComponent } from './app.component';
@@ -28,7 +29,8 @@ import { AlertService } from '../app/shared/service/alert.service';
     BrowserAnimationsModule,
     AvatarModule,
     MenubarModule,
-    ButtonModule
+    ButtonModule,
+    TableModule
   ],
   providers: [
     AlertService,

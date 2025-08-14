@@ -7,13 +7,19 @@ import { AlertService } from '../shared/service/alert.service';
 })
 export class TaskListComponent {
 
+  public dataTable: any[] = [];
+
   constructor(
     private alertService: AlertService
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.dataTable = [{no: 1}]
+  }
 
-  openDialog() {
+  onOpenDialog() {
     this.alertService.alert('error', '', 'error')
   }
+
+  onEdit(event: any) {}
 }
