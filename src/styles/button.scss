@@ -1,0 +1,26 @@
+.p-button .p-button-label {
+    transition-duration: 0.2s;
+}
+
+.p-button {
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s, outline-color 0.2s;
+  border-radius: 6px;
+  outline-color: transparent;
+    i {
+    margin-right: 5px;
+  }
+}
+
+.p-button.p-button-primary {
+  border: 1px solid #00adef !important;
+  background: #00adef !important;
+  color: #ffffff !important;
+}
+.p-button.p-button-secondary {
+  color: #00adef !important;
+  border: 1px solid #00adef !important;
+}

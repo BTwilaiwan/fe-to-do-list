@@ -1,0 +1,21 @@
+.p-accordion-content {
+  background: #f7f7f7;
+}
+.p-accordion-header-link {
+  background: linear-gradient(148deg, #00ADEF 0%, rgba(0, 173, 239, 0.37) 100%);
+  color: #FFFFFF;
+}
+
+.p-toggleable-content {
+  border-radius: 0 10px;
+}
+
+.p-element .p-icon-wrapper {
+  color: #00ADEF;
+}
+
+p-dropdown .p-dropdown.p-component.p-inputwrapper {
+  border: 1px solid #B4C3D3;
+  width: 95%;
+  margin-top: 5px;
+}

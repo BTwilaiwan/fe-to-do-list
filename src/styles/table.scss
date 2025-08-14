@@ -1,0 +1,20 @@
+p-table thead tr th {
+  text-align: center !important;
+  background: #F6FAFF !important;
+  border: 1px solid #c6d6f8 !important;
+  color: #464F60 !important;
+}
+p-table tbody tr td {
+  border: 1px solid #c6d6f8 !important;
+  color: #464F60 !important;
+  i {
+    color: #00adef !important;
+    cursor: pointer;
+  }
+}
+
+.p-paginator {
+  border: 1px solid #c6d6f8 !important;
+  border-top: none !important;
+  justify-content: end;
+}
