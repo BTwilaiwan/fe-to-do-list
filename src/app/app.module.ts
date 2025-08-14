@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http'
 
 import { MenuModule } from 'primeng/menu';
 import { MenubarModule } from 'primeng/menubar';
@@ -30,9 +31,11 @@ import { AlertService } from '../app/shared/service/alert.service';
     AvatarModule,
     MenubarModule,
     ButtonModule,
-    TableModule
+    TableModule,
+    HttpClientModule
   ],
   providers: [
+    HttpClientModule,
     AlertService,
     provideAnimationsAsync()
   ],

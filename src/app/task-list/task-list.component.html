@@ -41,7 +41,7 @@
               <td>{{ data.description }}</td>
               <td class="text-center">{{ data.dueDate | date: 'dd-MM-yyyy'  }}</td>
               <td class="text-center">{{ data.status }}</td>
-              <td class="text-center">{{ data.priority }}</td>
+              <td class="text-center {{data.color}}">{{ data.priority }}</td>
               <td class="text-center">{{ data.createdDate | date: 'dd-MM-yyyy' }}</td>
               <td class="text-center">{{ data.updatedDate | date: 'dd-MM-yyyy' }}</td>
               <td class="text-center" (click)="onEdit(data)"><i class="pi pi-pencil"></i></td>
