@@ -36,3 +36,67 @@
 .p-calendar .p-datepicker {
   min-width: 100%;
 }
+
+.p-calendar-w-btn .p-datepicker-trigger {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.p-fluid .p-button-icon-only {
+    width: 2.5rem;
+}
+
+.p-datepicker:not(.p-datepicker-inline) {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.p-calendar .p-inputtext {
+  flex: 1 1 auto;
+  width: 1%;
+  text-overflow: ellipsis;
+}
+
+.p-fluid .p-calendar .p-inputtext {
+    width: 1%;
+}
+
+.p-input-icon-right>.p-icon-wrapper {
+    position: absolute;
+    top: 50%;
+    margin-top: -.5rem;
+}
+
+.p-component  {
+    font-family: var(--font-family);
+    font-feature-settings: var(--font-feature-settings, normal);
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.p-datepicker table td > span {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s, outline-color 0.2s;
+    border: 1px solid transparent;
+}
+
+.p-datepicker td>span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.p-datepicker table  {
+    font-size: 1rem;
+}
+
+.p-calendar {
+  width: 95%;
+}

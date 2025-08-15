@@ -14,6 +14,8 @@ import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
 import { CalendarModule } from 'primeng/calendar';
 import { InputTextModule } from 'primeng/inputtext';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 import { LeftMenuComponent } from './left-menu/left-menu.component';
 import { AppComponent } from './app.component';
@@ -43,7 +45,9 @@ import { TaskListDialogComponent } from './task-list/task-list-dialog/task-list-
     HttpClientModule,
     ReactiveFormsModule,
     CalendarModule,
-    InputTextModule
+    InputTextModule,
+    DropdownModule,
+    InputTextareaModule
   ],
   providers: [
     HttpClientModule,

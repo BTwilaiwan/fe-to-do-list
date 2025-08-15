@@ -1,58 +1,44 @@
 <p-dialog header="Task Form" [modal]="true" [(visible)]="isShowDialog" [style]="{ width: '50%' }" [draggable]="false" (onHide)="onCancel()">
   <form [formGroup]="taskForm">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-1 mx-10">
+    <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-1 mx-10">
       <div class="flex col-span-2">
         <div class="grid justify-items-stretch grid-cols-2 w-full">
           <div class="flex col-span-2">
             <div class="grid justify-items-stretch grid-cols-1 w-full gap-4">
               <label for="txtTaskCode">Task Code</label>
-            </div>
-          </div>
-          <div class="flex col-span-2">
-            <div class="grid justify-items-stretch grid-cols-1 w-full gap-4">
               <input pInputText [class.p-invalid]="isFieldInvalid('taskCode') || requireCode" id="txtTaskCode" aria-describedby="task-code"
               [readOnly]="isDisable" formControlName="taskCode" />
             </div>
           </div>
-          <div class="flex col-span-1 mt-2">
-            <div class="grid justify-items-stretch grid-cols-1 w-full gap-4">
+          <div class="flex col-span-1 mt-2 mr-2">
+            <div class="grid justify-items-stretch grid-cols-1 w-full">
               <label for="txtTitle">Title</label>
-            </div>
-          </div>
-          <div class="flex col-span-2">
-            <div class="grid justify-items-stretch grid-cols-1 w-full gap-4">
               <input pInputText id="txtTitle" aria-describedby="title" formControlName="title" />
             </div>
           </div>
           <div class="flex col-span-1 mt-2">
-            <div class="grid justify-items-stretch grid-cols-1 w-full gap-4">
+            <div class="grid justify-items-stretch grid-cols-1 w-full">
+              <label for="txtPriority">Priority</label>
+              <p-dropdown id="txtPriority" formControlName="priority" [options]="optionPriority" optionLabel="name"placeholder="Select Priority" />
+            </div>
+          </div>
+          <div class="flex col-span-2 mt-2">
+            <div class="grid justify-items-stretch grid-cols-1 w-full">
               <label for="txtDescription">Description</label>
+              <!-- <input pInputText id="txtDescription" aria-describedby="description" formControlName="description" /> -->
+              <textarea rows="5" cols="30" pInputTextarea formControlName="description"></textarea>
             </div>
           </div>
-          <div class="flex col-span-2">
-            <div class="grid justify-items-stretch grid-cols-1 w-full gap-4">
-              <input pInputText id="txtDescription" aria-describedby="description" formControlName="description" />
-            </div>
-          </div>
-          <div class="flex col-span-2 mt-2">
-            <div class="grid justify-items-stretch grid-cols-1 w-full gap-4">
+          <div class="flex col-span-1 mt-2">
+            <div class="grid justify-items-stretch grid-cols-1 w-full">
               <label for="txtDueDate">DueDate</label>
+              <p-calendar formControlName="dueDate" [iconDisplay]="'input'" [showIcon]="true" inputId="icondisplay" dateFormat="dd-mm-yy" appendTo="body" panelStyleClass="w-64"></p-calendar>
             </div>
           </div>
-          <div class="flex col-span-2">
-            <div class="grid justify-items-stretch grid-cols-1 w-full gap-4">
-              <input pInputText id="txtDueDate" aria-describedby="dueDate" formControlName="dueDate" />
-              <p-calendar formControlName="dueDate" [iconDisplay]="'input'" [showIcon]="true" inputId="icondisplay" dateFormat="dd-mm-yyyy" />
-            </div>
-          </div>
-          <div class="flex col-span-2 mt-2">
-            <div class="grid justify-items-stretch grid-cols-1 w-full gap-4">
+          <div class="flex col-span-1 mt-2">
+            <div class="grid justify-items-stretch grid-cols-1 w-full">
               <label for="txtStatus">Status</label>
-            </div>
-          </div>
-          <div class="flex col-span-2">
-            <div class="grid justify-items-stretch grid-cols-1 w-full gap-4">
-              <input pInputText id="txtStatus" aria-describedby="status" formControlName="status" />
+              <p-dropdown id="txtStatus" formControlName="status" [options]="optionStatus" optionLabel="name"placeholder="Select Status" />
             </div>
           </div>
         </div>

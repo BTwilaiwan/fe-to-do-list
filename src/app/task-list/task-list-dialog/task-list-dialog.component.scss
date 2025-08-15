@@ -1,0 +1,5 @@
+.p-datepicker {
+  min-width: auto !important; /* ลด width default */
+  width: max-content !important; /* ขนาดตาม content */
+  max-width: 300px; /* ถ้าต้องการจำกัด */
+}

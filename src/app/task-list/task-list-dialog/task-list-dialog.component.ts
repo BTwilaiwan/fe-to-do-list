@@ -15,6 +15,8 @@ export class TaskListDialogComponent {
   public taskForm!: FormGroup;
   public requireCode: boolean = false;
   public isDisable: boolean = false;
+  public optionStatus: any[] = [];
+  public optionPriority: any[] = [];
 
   get f() { return this.taskForm.controls; }
 
@@ -27,6 +29,7 @@ export class TaskListDialogComponent {
       description: new FormControl({value: '', disabled: false}),
       dueDate: new FormControl({value: '', disabled: false}),
       status: new FormControl({value: '', disabled: false}),
+      priority: new FormControl({value: '', disabled: false}),
     })
   }
 

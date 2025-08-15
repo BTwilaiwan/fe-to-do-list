@@ -49,5 +49,14 @@ export class TaskListComponent {
 
   onEdit(event: any) {}
 
-  onComplete(event: any) {}
+  onComplete(event: any) {
+    try {
+      this.isShowDialog = false;
+      if (event.mode === 'save') {
+
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
 }
