@@ -18,3 +18,15 @@ p-table tbody tr td {
   border-top: none !important;
   justify-content: end;
 }
+
+p-tablecheckbox .p-checkbox-box.p-component, .p-checkbox-box.p-component,
+p-tableheadercheckbox .p-checkbox-box {
+  border: 1px solid #c6d6f8 !important
+}
+
+p-tablecheckbox .p-checkbox-box.p-component.p-disabled {
+  background-color: #e5e7eb;
+  > checkicon {
+    display: none;
+  }
+}

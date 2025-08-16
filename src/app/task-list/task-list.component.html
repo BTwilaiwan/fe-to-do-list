@@ -7,22 +7,25 @@
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 sm:space-x-0 w-full">
-      <div class="col-span-4 self-end text-right pb-[0.5rem]">
+      <div class="col-span-2 text-left pb-[5px] mr-2 flex items-center">
+        <span>Number of Records: {{ dataTable.length || 0 }} Records</span>
+      </div>
+      <div class="col-span-2 self-end text-right pb-[0.5rem]">
         <p-button label="Add Item" severity="primary" (onClick)="onOpenDialog()">
           <i class="fa-sharp fa-solid fa-plus mr-3"></i>
         </p-button>
-      </div>
-      <div class="col-span-1 text-left pb-[5px] mr-2 flex align-items-center">
-        <span>Number of Records: {{ dataTable.length || 0 }} Records</span>
       </div>
     </div>
 
     <div class="grid grid-cols-1 mt-3">
       <div class="standard-table">
         <p-table [value]="dataTable" styleClass="p-datatable-striped" [tableStyle]="{ 'min-width': '50rem' }"
-        [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5, 10, 20]">
+        [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5, 10, 20]" [(selection)]="selectedTask" dataKey="_id">
           <ng-template pTemplate="header">
             <tr>
+              <th>
+                <p-tableHeaderCheckbox ></p-tableHeaderCheckbox>
+              </th>
               <th>No</th>
               <th>Task Code</th>
               <th>Title</th>
@@ -37,6 +40,9 @@
           </ng-template>
           <ng-template pTemplate="body" let-data let-rowIndex="rowIndex">
             <tr>
+              <td>
+                <p-tableCheckbox binary="true" [value]="data" [disabled]="data.status === 'Done'" (click)="onSelectRow(data)"></p-tableCheckbox>
+              </td>
               <td class="text-center">{{ rowIndex + 1 }}</td>
               <td class="text-center">{{ data._id }}</td>
               <td>{{ data.title }}</td>

@@ -12,6 +12,7 @@ export class TaskListComponent {
   public dataTable: any[] = [];
   public isShowDialog: boolean = false;
   public defaultData: any = {};
+  public selectedTask: any;
 
   constructor(
     private alertService: AlertService,
@@ -93,4 +94,28 @@ export class TaskListComponent {
       }
     })
   }
+
+  get tableSelection(): any[] {
+    return this.selectedTask;
+  }
+
+  set tableSelection(value: any[]) {
+    console.log("Selected rows:", value);
+    // this.selectedTask = value.filter(row => row.status !== 'Done');
+  }
+
+  onSelectedTask() {
+    console.log(this.selectedTask)
+    return true
+  }
+
+  onSelectRow(event: any) {
+    const countSelect = this.selectedTask.filter((e: any) => e.status !== 'Done' ).length;
+    const countTable = this.dataTable.filter((e: any) => e.status !== 'Done' ).length;
+    if (countSelect === countTable) {
+      this.selectedTask = this.dataTable;
+      return this.selectedTask
+    }
+  }
+
 }
