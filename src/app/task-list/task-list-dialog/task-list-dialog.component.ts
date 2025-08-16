@@ -1,10 +1,11 @@
-import { Component, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
+import { Component, Input, Output, EventEmitter, SimpleChanges, ChangeDetectorRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-
+import { TaskService } from '../../shared/service/task.service';
+import { firstValueFrom } from 'rxjs';
 @Component({
   selector: 'app-task-list-dialog',
   templateUrl: './task-list-dialog.component.html',
-  styleUrl: './task-list-dialog.component.scss'
+  styleUrl: './task-list-dialog.component.scss',
 })
 export class TaskListDialogComponent {
 
@@ -20,9 +21,13 @@ export class TaskListDialogComponent {
 
   get f() { return this.taskForm.controls; }
 
-  constructor() {}
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private taskService: TaskService
+  ) {}
 
   ngOnInit() {
+    console.log(this.datas)
     this.taskForm = new FormGroup({
       taskCode: new FormControl({value: '', disabled: false},[Validators.required]),
       title: new FormControl({value: '', disabled: false}),
@@ -31,6 +36,53 @@ export class TaskListDialogComponent {
       status: new FormControl({value: '', disabled: false}),
       priority: new FormControl({value: '', disabled: false}),
     })
+    this.getDropdown();
+  }
+
+  getDropdown() {
+    try {
+      Promise.all([
+        firstValueFrom(this.taskService.getStatus()),
+        firstValueFrom(this.taskService.getPriority()),
+      ]).then((response: any) => {
+        this.optionStatus = response[0];
+        this.optionPriority = response[1];
+        this.taskForm.patchValue({
+          status: this.optionStatus[0].status,
+          priority: this.optionPriority[0].priority
+        })
+      })
+    }
+    catch (error) {}
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(changes)
+    if(changes['datas']?.currentValue && Object.keys(this.datas).length > 0 ) {
+      this.isDisable = true;
+      this.initForm();
+      this.cdr.markForCheck();
+    } else {
+      this.isDisable = false;
+    }
+  }
+
+  initForm() {
+    this.taskForm.patchValue({
+      taskCode: this.datas?._id,
+      title: this.datas?.title,
+      description: this.datas?.description,
+      dueDate: new Date(this.datas?.dueDate),
+      // status: this.datas?.status,
+      // priority: this.datas?.priority
+    })
+    if (this.optionPriority?.length) {
+      this.taskForm.get('priority')?.setValue(this.datas?.priority);
+    }
+    if (this.optionStatus?.length) {
+      this.taskForm.get('status')?.setValue(this.datas?.status);
+    }
+    this.cdr.detectChanges();
   }
 
   onSave() {

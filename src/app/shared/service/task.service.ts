@@ -20,5 +20,11 @@ export class TaskService {
   getTaskList() {
     return this._http.get<ApiResponseModel<null>>(`${environment.apis.task}/getTaskList`).pipe(map(o => o.result));
   }
+  getStatus() {
+    return this._http.get<ApiResponseModel<null>>(`${environment.apis.ddl}/getStatus`).pipe(map(o => o.result));
+  }
+  getPriority() {
+    return this._http.get<ApiResponseModel<null>>(`${environment.apis.ddl}/getPriority`).pipe(map(o => o.result));
+  }
 
 }

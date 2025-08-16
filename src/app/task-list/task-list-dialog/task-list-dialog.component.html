@@ -19,7 +19,7 @@
           <div class="flex col-span-1 mt-2">
             <div class="grid justify-items-stretch grid-cols-1 w-full">
               <label for="txtPriority">Priority</label>
-              <p-dropdown id="txtPriority" formControlName="priority" [options]="optionPriority" optionLabel="name"placeholder="Select Priority" />
+              <p-dropdown id="txtPriority" formControlName="priority" [options]="optionPriority" optionLabel="priority" optionValue="priority" placeholder="Select Priority"></p-dropdown>
             </div>
           </div>
           <div class="flex col-span-2 mt-2">
@@ -38,7 +38,7 @@
           <div class="flex col-span-1 mt-2">
             <div class="grid justify-items-stretch grid-cols-1 w-full">
               <label for="txtStatus">Status</label>
-              <p-dropdown id="txtStatus" formControlName="status" [options]="optionStatus" optionLabel="name"placeholder="Select Status" />
+              <p-dropdown id="txtStatus" formControlName="status" [options]="optionStatus" optionLabel="status" optionValue="status" placeholder="Select Status" />
             </div>
           </div>
         </div>

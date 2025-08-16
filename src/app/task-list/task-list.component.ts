@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { AlertService } from '../shared/service/alert.service';
 import { TaskService } from '../shared/service/task.service';
+
 @Component({
   selector: 'app-task-list',
   templateUrl: './task-list.component.html',
@@ -28,7 +29,7 @@ export class TaskListComponent {
           const temp = response;
           temp.forEach((element: any) => {
             element.color = 'text-success';
-            if(element.priority === 'High') element.color = 'text-error';
+            if(element.priority === 'Hight') element.color = 'text-error';
             if(element.priority === 'Medium') element.color = 'text-warning';
           });
           this.dataTable = temp;
@@ -47,7 +48,10 @@ export class TaskListComponent {
     this.isShowDialog = true;
   }
 
-  onEdit(event: any) {}
+  onEdit(event: any) {
+    this.defaultData = event;
+    this.isShowDialog = true;
+  }
 
   onComplete(event: any) {
     try {

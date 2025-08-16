@@ -24,6 +24,7 @@
           <ng-template pTemplate="header">
             <tr>
               <th>No</th>
+              <th>Task Code</th>
               <th>Title</th>
               <th>Description</th>
               <th>Due Date</th>
@@ -37,6 +38,7 @@
           <ng-template pTemplate="body" let-data let-rowIndex="rowIndex">
             <tr>
               <td class="text-center">{{ rowIndex + 1 }}</td>
+              <td class="text-center">{{ data._id }}</td>
               <td>{{ data.title }}</td>
               <td>{{ data.description }}</td>
               <td class="text-center">{{ data.dueDate | date: 'dd-MM-yyyy'  }}</td>

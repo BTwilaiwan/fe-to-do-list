@@ -1,0 +1,7 @@
+* {
+  transition: all 300ms;
+}
+
+.p-dialog * {
+  transition: none !important;
+}
