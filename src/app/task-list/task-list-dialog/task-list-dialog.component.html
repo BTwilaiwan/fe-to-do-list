@@ -4,7 +4,7 @@
       <div class="flex col-span-2">
         <div class="grid justify-items-stretch grid-cols-2 w-full">
           <div class="flex col-span-2">
-            <div class="grid justify-items-stretch grid-cols-1 w-full gap-4">
+            <div class="grid justify-items-stretch grid-cols-1 w-full">
               <label for="txtTaskCode">Task Code</label>
               <input pInputText [class.p-invalid]="isFieldInvalid('taskCode') || requireCode" id="txtTaskCode" aria-describedby="task-code"
               [readOnly]="isDisable" formControlName="taskCode" />

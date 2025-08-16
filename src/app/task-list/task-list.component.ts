@@ -57,10 +57,40 @@ export class TaskListComponent {
     try {
       this.isShowDialog = false;
       if (event.mode === 'save') {
-
+        this.taskService.createTask(event.data).subscribe({
+          next: (res: any) => {
+            if (res) {
+              this.alertService.alert('success', '', 'Success').then((data) => {
+                if (data.isConfirmed) {
+                  this.initTask();
+                }
+              })
+            }
+          }, error: (err) => {
+            return this.alertService.alert('error', '', err.error.result);
+          }
+        })
       }
     } catch (error) {
       console.log(error)
     }
+  }
+
+  onDelete(id: any) {
+    this.alertService.confirmAlert('question', '', 'Confirm Delete?').then((data) => {
+      if (data.isConfirmed) {
+        this.taskService.deleteTask(id).subscribe({
+          next: (response: any) => {
+            this.alertService.alert('success', '', response.result).then((dataSucc) => {
+              if(dataSucc.isConfirmed) {
+                  this.initTask();
+              }
+            })
+          }, error: (err) => {
+            return this.alertService.alert('error', '', err.error.result);
+          }
+        })
+      }
+    })
   }
 }

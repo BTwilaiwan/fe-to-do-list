@@ -27,12 +27,11 @@ export class TaskListDialogComponent {
   ) {}
 
   ngOnInit() {
-    console.log(this.datas)
     this.taskForm = new FormGroup({
       taskCode: new FormControl({value: '', disabled: false},[Validators.required]),
       title: new FormControl({value: '', disabled: false}),
       description: new FormControl({value: '', disabled: false}),
-      dueDate: new FormControl({value: '', disabled: false}),
+      dueDate: new FormControl({value: new Date(), disabled: false}),
       status: new FormControl({value: '', disabled: false}),
       priority: new FormControl({value: '', disabled: false}),
     })
@@ -64,6 +63,13 @@ export class TaskListDialogComponent {
       this.cdr.markForCheck();
     } else {
       this.isDisable = false;
+      this.taskForm.patchValue({ dueDate: new Date() })
+      if (this.optionPriority?.length) {
+        this.taskForm.get('priority')?.setValue(this.optionPriority[0].priority);
+      }
+      if (this.optionStatus?.length) {
+        this.taskForm.get('status')?.setValue(this.optionStatus[0].status);
+      }
     }
   }
 
@@ -72,9 +78,7 @@ export class TaskListDialogComponent {
       taskCode: this.datas?._id,
       title: this.datas?.title,
       description: this.datas?.description,
-      dueDate: new Date(this.datas?.dueDate),
-      // status: this.datas?.status,
-      // priority: this.datas?.priority
+      dueDate: new Date(this.datas?.dueDate)
     })
     if (this.optionPriority?.length) {
       this.taskForm.get('priority')?.setValue(this.datas?.priority);
@@ -87,7 +91,7 @@ export class TaskListDialogComponent {
 
   onSave() {
     console.log(this.taskForm)
-    // if (this.f['employeeCode'].invalid) this.requireCode = true;
+    if (this.f['taskCode'].invalid) this.requireCode = true;
     if (this.taskForm.valid) {
       this.onComplete.emit({ mode: "save", data: this.taskForm.value });
     }
@@ -100,7 +104,7 @@ export class TaskListDialogComponent {
   }
 
   isFieldInvalid(fieldName: string): boolean {
-    // if (this.f['employeeCode'].valid) this.requireCode = false;
+    if (this.f['taskCode'].valid) this.requireCode = false;
     const control = this.taskForm.get(fieldName);
     return !!(control && control.invalid && (control.dirty || control.touched));
   }

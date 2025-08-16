@@ -46,7 +46,10 @@
               <td class="text-center {{data.color}}">{{ data.priority }}</td>
               <td class="text-center">{{ data.createdDate | date: 'dd-MM-yyyy' }}</td>
               <td class="text-center">{{ data.updatedDate | date: 'dd-MM-yyyy' }}</td>
-              <td class="text-center" (click)="onEdit(data)"><i class="pi pi-pencil"></i></td>
+              <td class="text-center">
+                <i class="pi pi-pencil mr-2" (click)="onEdit(data)"></i>
+                <i class="pi pi-trash text-error" (click)="onDelete(data._id)"></i>
+              </td>
             </tr>
           </ng-template>
         </p-table>
