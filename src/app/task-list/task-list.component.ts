@@ -71,7 +71,22 @@ export class TaskListComponent {
             return this.alertService.alert('error', '', err.error.result);
           }
         })
+      } else if (event.mode === 'edit') {
+        this.taskService.updateTask(event.data.taskCode, event.data).subscribe({
+          next: (res: any) => {
+            if (res) {
+              this.alertService.alert('success', '', res.result).then((data) => {
+                if (data.isConfirmed) {
+                  this.initTask();
+                }
+              })
+            }
+          }, error: (err) => {
+            return this.alertService.alert('error', '', err.error.result);
+          }
+        })
       }
+
     } catch (error) {
       console.log(error)
     }
@@ -95,27 +110,32 @@ export class TaskListComponent {
     })
   }
 
-  get tableSelection(): any[] {
-    return this.selectedTask;
-  }
-
-  set tableSelection(value: any[]) {
-    console.log("Selected rows:", value);
-    // this.selectedTask = value.filter(row => row.status !== 'Done');
-  }
-
-  onSelectedTask() {
-    console.log(this.selectedTask)
-    return true
-  }
-
-  onSelectRow(event: any) {
-    const countSelect = this.selectedTask.filter((e: any) => e.status !== 'Done' ).length;
-    const countTable = this.dataTable.filter((e: any) => e.status !== 'Done' ).length;
+  onSelectRow() {
+    const countSelect = this.selectedTask.filter((e: any) => e.status !== 'Completed' ).length;
+    const countTable = this.dataTable.filter((e: any) => e.status !== 'Completed' ).length;
     if (countSelect === countTable) {
       this.selectedTask = this.dataTable;
       return this.selectedTask
     }
   }
 
+
+  onUpdateStatus() {
+    const dataSelect = this.selectedTask.filter((e: any) => e.status !== 'Completed')
+    this.alertService.confirmAlert('question', '', 'Confirm update status?').then((data) => {
+      if (data.isConfirmed) {
+        this.taskService.updateStatus(dataSelect).subscribe({
+          next: (response: any) => {
+            this.alertService.alert('success', '', response.result).then((dataSucc) => {
+              if(dataSucc.isConfirmed) {
+                  this.initTask();
+              }
+            })
+          }, error: (err) => {
+            return this.alertService.alert('error', '', err.error.result);
+          }
+        })
+      }
+    })
+  }
 }

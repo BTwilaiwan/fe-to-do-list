@@ -57,7 +57,8 @@ export class TaskListDialogComponent {
 
   ngOnChanges(changes: SimpleChanges) {
     console.log(changes)
-    if(changes['datas']?.currentValue && Object.keys(this.datas).length > 0 ) {
+    console.log(this.datas)
+    if(changes['isShowDialog'].currentValue && Object.keys(this.datas).length > 0 ) {
       this.isDisable = true;
       this.initForm();
       this.cdr.markForCheck();
@@ -90,10 +91,11 @@ export class TaskListDialogComponent {
   }
 
   onSave() {
-    console.log(this.taskForm)
     if (this.f['taskCode'].invalid) this.requireCode = true;
     if (this.taskForm.valid) {
-      this.onComplete.emit({ mode: "save", data: this.taskForm.value });
+      let mode = "save";
+      if (Object.keys(this.datas).length > 0) mode = "edit";
+      this.onComplete.emit({ mode: mode, data: this.taskForm.value });
     }
   }
 

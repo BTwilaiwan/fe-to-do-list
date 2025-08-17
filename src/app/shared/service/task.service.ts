@@ -38,4 +38,14 @@ export class TaskService {
     return this._http.delete<ApiResponseModel<null>>(`${environment.apis.task}/deleteTaskById/${id}`);
   }
 
+  updateStatus(data: any) {
+    let body = JSON.stringify(data);
+    return this._http.put<ApiResponseModel<null>>(`${environment.apis.task}/updateStatus`, body, httpOptions);
+  }
+
+  updateTask(taskcode: string, data: any) {
+    let body = JSON.stringify(data);
+    return this._http.put<ApiResponseModel<null>>(`${environment.apis.task}/updateTask/${taskcode}`, body, httpOptions);
+  }
+
 }

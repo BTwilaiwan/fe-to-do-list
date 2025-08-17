@@ -11,9 +11,13 @@
         <span>Number of Records: {{ dataTable.length || 0 }} Records</span>
       </div>
       <div class="col-span-2 self-end text-right pb-[0.5rem]">
+        <p-button class="mr-2" label="Update Status" severity="success" (onClick)="onUpdateStatus()">
+          <i class="fa-sharp fa-solid fa-plus mr-3"></i>
+        </p-button>
         <p-button label="Add Item" severity="primary" (onClick)="onOpenDialog()">
           <i class="fa-sharp fa-solid fa-plus mr-3"></i>
         </p-button>
+
       </div>
     </div>
 
@@ -41,7 +45,7 @@
           <ng-template pTemplate="body" let-data let-rowIndex="rowIndex">
             <tr>
               <td>
-                <p-tableCheckbox binary="true" [value]="data" [disabled]="data.status === 'Done'" (click)="onSelectRow(data)"></p-tableCheckbox>
+                <p-tableCheckbox binary="true" [value]="data" [disabled]="data.status === 'Completed'" (click)="onSelectRow()"></p-tableCheckbox>
               </td>
               <td class="text-center">{{ rowIndex + 1 }}</td>
               <td class="text-center">{{ data._id }}</td>
@@ -53,7 +57,7 @@
               <td class="text-center">{{ data.createdDate | date: 'dd-MM-yyyy' }}</td>
               <td class="text-center">{{ data.updatedDate | date: 'dd-MM-yyyy' }}</td>
               <td class="text-center">
-                <i class="pi pi-pencil mr-2" (click)="onEdit(data)"></i>
+                <i *ngIf="data.status !== 'Completed'" class="pi pi-pencil mr-2" (click)="onEdit(data)"></i>
                 <i class="pi pi-trash text-error" (click)="onDelete(data._id)"></i>
               </td>
             </tr>
