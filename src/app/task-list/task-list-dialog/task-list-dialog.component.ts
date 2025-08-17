@@ -56,8 +56,6 @@ export class TaskListDialogComponent {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(changes)
-    console.log(this.datas)
     if(changes['isShowDialog'].currentValue && Object.keys(this.datas).length > 0 ) {
       this.isDisable = true;
       this.initForm();
