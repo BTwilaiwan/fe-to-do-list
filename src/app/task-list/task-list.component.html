@@ -6,7 +6,9 @@
       <span>Task list</span>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 sm:space-x-0 w-full">
+    <app-task-list-filter class="mt-5" [datas]="defaultTable" (onComplete)="onCompleteFilter($event)"></app-task-list-filter>
+
+    <div class="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 sm:space-x-0 w-full mt-5">
       <div class="col-span-2 text-left pb-[5px] mr-2 flex items-center">
         <span>Number of Records: {{ dataTable.length || 0 }} Records</span>
       </div>
@@ -17,7 +19,6 @@
         <p-button label="Add Item" severity="primary" (onClick)="onOpenDialog()">
           <i class="fa-sharp fa-solid fa-plus mr-3"></i>
         </p-button>
-
       </div>
     </div>
 

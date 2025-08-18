@@ -10,6 +10,7 @@ import { TaskService } from '../shared/service/task.service';
 export class TaskListComponent {
 
   public dataTable: any[] = [];
+  public defaultTable: any[] = [];
   public isShowDialog: boolean = false;
   public defaultData: any = {};
   public selectedTask: any;
@@ -34,7 +35,9 @@ export class TaskListComponent {
             if(element.priority === 'Medium') element.color = 'text-warning';
           });
           this.dataTable = temp;
-          this.dataTable = this.dataTable.sort((a: any, b: any) => a.priorityId - b.priorityId)
+          this.dataTable = this.dataTable.sort((a: any, b: any) => a.priorityId - b.priorityId);
+          this.defaultTable = this.dataTable;
+          console.log(this.defaultTable)
         }, error: (err) => {
            return this.alertService.alert('error', '', err.error.message)
         }
@@ -137,5 +140,24 @@ export class TaskListComponent {
         })
       }
     })
+  }
+
+  onCompleteFilter(event: any) {
+    console.log(event)
+    console.log(this.defaultTable)
+    this.dataTable = this.defaultTable;
+    const filterData = event.data;
+    if (!event.isFilter) {
+      return;
+    }
+    if (filterData?.taskCode) {
+      this.dataTable = this.dataTable.filter((f: any) => filterData.taskCode === f._id);
+    }
+    if (filterData?.status) {
+      this.dataTable = this.dataTable.filter((f: any) => filterData.status === f.status);
+    }
+    if (filterData?.priority) {
+      this.dataTable = this.dataTable.filter((f: any) => filterData.priority === f.priorityId);
+    }
   }
 }

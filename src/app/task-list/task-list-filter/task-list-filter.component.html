@@ -1,0 +1,26 @@
+<p-accordion [activeIndex]="0">
+  <p-accordionTab header="Filter">
+    <form [formGroup]="filterForm">
+      <div class="grid grid-cols-1 gap-x-2 my-1 md:grid-cols-3">
+        <div class="filter-ddl">
+          <label for="txtTaskCode">Task Code</label>
+          <p-dropdown id="ddlTaskcode" class="mt-2" [options]="optionTaskCode"  formControlName="taskCode" optionLabel="name" optionValue="value" placeholder="Select task code" />
+        </div>
+        <div class="filter-ddl">
+          <label for="txtStatus">Status</label>
+          <p-dropdown id="ddlStatus" class="mt-2" [options]="optionStatus"  formControlName="status" optionLabel="name" optionValue="value" placeholder="Select status" />
+        </div>
+        <div class="filter-ddl">
+          <label for="txtPriority">Priority</label>
+          <p-dropdown id="ddlPriority" class="mt-2" [options]="optionPriority"  formControlName="priority" optionLabel="name" optionValue="value" placeholder="Select priority" />
+        </div>
+      </div>
+    </form>
+    <div class="flex flex-wrap items-center justify-center mt-3">
+      <p-button class="mr-2" label="Clear" severity="secondary" (click)="onClear()"></p-button>
+      <p-button label="Search" severity="primary" (click)="onSearch()">
+        <i class="pi pi-search"></i>
+      </p-button>
+    </div>
+  </p-accordionTab>
+</p-accordion>

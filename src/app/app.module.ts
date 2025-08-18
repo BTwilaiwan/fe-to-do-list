@@ -16,6 +16,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { AccordionModule } from 'primeng/accordion';
 
 import { LeftMenuComponent } from './left-menu/left-menu.component';
 import { AppComponent } from './app.component';
@@ -23,6 +24,7 @@ import { MenuBarComponent } from './menu-bar/menu-bar.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { AlertService } from '../app/shared/service/alert.service';
 import { TaskListDialogComponent } from './task-list/task-list-dialog/task-list-dialog.component';
+import { TaskListFilterComponent } from './task-list/task-list-filter/task-list-filter.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { TaskListDialogComponent } from './task-list/task-list-dialog/task-list-
     LeftMenuComponent,
     MenuBarComponent,
     TaskListComponent,
-    TaskListDialogComponent
+    TaskListDialogComponent,
+    TaskListFilterComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,8 @@ import { TaskListDialogComponent } from './task-list/task-list-dialog/task-list-
     CalendarModule,
     InputTextModule,
     DropdownModule,
-    InputTextareaModule
+    InputTextareaModule,
+    AccordionModule
   ],
   providers: [
     HttpClientModule,
