@@ -1,8 +1,9 @@
 # FeToDoList
 
-<p align="center">
-  <img src="src/assets/shared/image/screen.png" alt="Logo" width="80%" height="500"><br>
-</p>
+<div align="center">
+  <img src="src/assets/shared/image/screen.png" alt="Logo" width="45%" height="400">
+  <img src="src/assets/shared/image/screen-edit.png" alt="Logo" width="45%" height="400"><br>
+</div>
 
 
 # Features
