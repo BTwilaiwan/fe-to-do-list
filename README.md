@@ -1,27 +1,55 @@
 # FeToDoList
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.20.
+<p align="center">
+  <img src="src/assets/shared/image/screen.png" alt="Logo" width="80%" height="500"><br>
+</p>
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# Features
+<li><strong>Create Tasks: </strong>Add new tasks with titles, priority, descriptions due date and status.</li>
+<li><strong>Edit Tasks: </strong>Edit tasks with titles, priority, descriptions due date and status.</li>
+<li><strong>Delete Tasks: </strong>Delete unwanted tasks.</li>
+<li><strong>Edit Tasks: </strong>Edit tasks with titles, priority, descriptions due date and status.</li>
+<li><strong>Checkbox: </strong>Only tasks that are not in completed status can be marked.</li>
+<li><strong>Update Status: </strong>Update the status of the task that has been checked to completed.</li>
+<li><strong>Search: </strong>Search by Task code, Status or priority.</li>
+<li><strong>Clear: </strong>Clear the selected dropdown.</li><br>
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Technologies Used
+<li>Angular 18.2.20</li>
+<li>TypeScript</li>
+<li>Angular Primeng for UI components</li>
+<li>Tailwind CSS</li><br>
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+# Installation and Development Server
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Clone this repository fe-to-do-list:
+```bash
+git clone https://github.com/BTwilaiwan/fe-to-do-list.git
+```
+Install the dependencies
+```
+npm install 
+```
+Start the development server
+```
+npm start 
+```
+Clone this repository be-to-do-list:
+```bash
+git clone https://github.com/BTwilaiwan/be-to-do-list.git
+```
+Install the dependencies
+```
+npm install 
+```
+Start the development server
+```
+npm start 
+```
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Navigate to http://localhost:4200/ in your browser to see the application. The application will automatically reload if you change any of the source files.

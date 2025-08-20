@@ -45,7 +45,7 @@
           </ng-template>
           <ng-template pTemplate="body" let-data let-rowIndex="rowIndex">
             <tr>
-              <td>
+              <td class="text-center">
                 <p-tableCheckbox binary="true" [value]="data" [disabled]="data.status === 'Completed'" (click)="onSelectRow()"></p-tableCheckbox>
               </td>
               <td class="text-center">{{ rowIndex + 1 }}</td>
